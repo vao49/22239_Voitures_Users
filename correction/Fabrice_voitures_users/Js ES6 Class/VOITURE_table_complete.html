@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title></title>
+
+
+  <!------------------- BS5 ---------------------------------->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Les ICONS BS5-->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+
+</head>
+
+<body>
+  <header id="id-header"></header>
+  <div clas="container-fluid">
+    <h1>Gestions des voitures (avec Class)</h1>
+    <div id="message"></div>
+
+    <button type="button" class="btn btn-primary fas fa-plus" data-bs-toggle="modal" data-bs-target="#frmAjout">
+      Nouveau
+    </button>
+
+    <!-- Zone devant afficher la liste -->
+    <div id="zoneTable" class="table-responsive"></div>
+    <br />
+    <br />
+    <br />
+    <br />
+  </div>
+
+  <!-- Le formulaire MODAL pour la gestion de la creation -->
+  <div class="modal" id="frmAjout">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <!-- Modal ENTETE -->
+        <div class="modal-header">
+          <h4 class="modal-title">Ajout d'une nouvelle Voiture</h4>
+          <button type="button" class="close" data-bs-dismiss="modal">
+            &times;
+          </button>
+        </div>
+
+        <!-- Modal CORPS -->
+        <div class="modal-body">
+          <form action="">
+            <div class="form-floating mb-3">
+              <input type="text" id="txtmarque" class="form-control" placeholder="Saisir une marque" />
+              <label for="txtmarque">Marque :</label>
+            </div>
+
+            <div class="form-floating mb-3">
+              <input type="text" id="txtcouleur" class="form-control" placeholder="Saisir une couleur" />
+              <label for="txtcouleur">Couleur :</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="text" id="txtcylindree" class="form-control" placeholder="Saisir une cylindree" />
+              <label for="txtcylindree">Cylindree :</label>
+            </div>
+          </form>
+        </div>
+
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" id="btnAjout" class="btn btn-success">
+            Enregistrer
+          </button>
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
+            Annuler
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Le formulaire MODAL pour la gestion de la VISUALISATION -->
+  <div class="modal" id="frmVue">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <!-- Modal ENTETE -->
+        <div class="modal-header">
+          <h4 class="modal-title">Visualisation d'une Voiture</h4>
+          <button type="button" class="close" data-bs-dismiss="modal">
+            &times;
+          </button>
+        </div>
+
+        <!-- Modal CORPS -->
+        <div class="modal-body">
+          <form action="">
+            <div class="form-floating mb-3">
+              <input type="text" id="txtcode_vue" class="form-control" disabled />
+              <label for="txtcode_vue">Code :</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="text" id="txtMarque_vue" class="form-control" placeholder="Saisir une marque" disabled />
+              <label for="txtMarque_vue">Marque :</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="text" id="txtCouleur_vue" class="form-control" placeholder="Saisir une couleur" disabled />
+              <label for="txtCouleur_vue">Couleur :</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="text" id="txtCylindree_vue" class="form-control" placeholder="Saisir une cylindrée"
+                disabled />
+              <label for="txtCylindree_vue">Cylindrée :</label>
+            </div>
+          </form>
+        </div>
+
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <!-- <button type="button" id="btnModif_enreg" class="btn btn-success">
+              Enregistrer
+            </button> -->
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
+            Fermer
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Le formulaire MODAL pour la gestion de la MODIFICATION -->
+  <div class="modal" id="frmModif">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <!-- Modal ENTETE -->
+        <div class="modal-header">
+          <h4 class="modal-title">Modification d'une Voiture</h4>
+          <button type="button" class="close" data-bs-dismiss="modal">
+            &times;
+          </button>
+        </div>
+
+        <!-- Modal CORPS -->
+        <div class="modal-body">
+          <form action="">
+            <div class="form-floating mb-3">
+              <input type="text" id="txtcode_modif" class="form-control" disabled />
+              <label for="txtcode_modif">Code :</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="text" id="txtMarque_modif" class="form-control" placeholder="Saisir une marque" />
+              <label for="txtMarque_modif">Marque :</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="text" id="txtCouleur_modif" class="form-control" placeholder="Saisir une couleur" />
+              <label for="txtCouleur_modif">Couleur :</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="text" id="txtCylindree_modif" class="form-control" placeholder="Saisir une cylindrée" />
+              <label for="txtCylindree_modif">Cylindrée :</label>
+            </div>
+          </form>
+        </div>
+
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" id="btnModif_enreg" class="btn btn-success">
+            Enregistrer
+          </button>
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
+            Annuler
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer id="id-footer" class="fixed-bottom"></footer>
+
+
+  <!---------------- Les fichiers JS pour BOOTSTRAP 5 -------------------->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Nos fichiers JS  -->
+  <!-- <script src="90%20Table.js"></script> -->
+  <script src="js/90 Table_ES6.js"></script>
+  <script src="js/Ajax_class.js"></script>
+  <script src="js/init_ES6.js"></script>
+  <script src="./js/ajax_Class_Html.js"></script>
+
+  <script>
+    "use strict";
+    //////////////////////////////////////////////////////////
+    ///////			LES FONCTIONS
+    //////////////////////////////////////////////////////////
+
+
+    function generer_alert(type, message) {
+      // Pour BS 5
+      document.getElementById("message").innerHTML =
+        "<div class = 'alert alert-" +
+        type +
+        " alert-dismissible' ><button type='button' class = 'btn-close' data-bs-dismiss = 'alert' role='alert' aria-label='Close'></button>" +
+        message +
+        "</div>";
+    }
+    ///     Fonction déclenchée lorsque l'on click sur VUE
+    function vueVoiture(e) {
+      //   Fonction qui sera executée lors du click sur le bouton VUE
+      let valeurs = e.target.value.split("*");
+
+      document.getElementById("txtcode_vue").value = valeurs[0];
+      document.getElementById("txtMarque_vue").value = valeurs[1];
+      document.getElementById("txtCouleur_vue").value = valeurs[2];
+      document.getElementById("txtCylindree_vue").value = valeurs[3];
+    }
+
+    ///     Fonction déclenchée lorsque l'on click sur MODIF
+    function modifVoiture(e) {
+      //   Fonction quie sera executée lors du click sur le bouton MODIF
+      let valeurs = e.target.value.split("*");
+
+      document.getElementById("txtcode_modif").value = valeurs[0];
+      document.getElementById("txtMarque_modif").value = valeurs[1];
+      document.getElementById("txtCouleur_modif").value = valeurs[2];
+      document.getElementById("txtCylindree_modif").value = valeurs[3];
+    }
+
+    ///     Fonction déclenchée lorsque l'on click sur SUPPR
+    function supprVoiture(e) {
+      //   Fonction quie sera executée lors du click sur le bouton SUPPR
+      let valeurs = e.target.value.split("*");
+      let reponse = confirm(
+        "Êtes-vous certain de vouloir supprimer cette voiture ?"
+      );
+      if (reponse) {
+        Obj_AJAX_voitures.Cle = valeurs[0]; // Recupération du code à supprimer
+        Obj_AJAX_voitures.del(retourAjaxSuppr, erreur);
+      }
+    }
+
+    function Get_zones_ajout() {
+      let resultat;
+
+      resultat = "marque=" + document.getElementById("txtmarque").value;
+      resultat += "&couleur=" + document.getElementById("txtcouleur").value;
+      resultat += "&cylindree=" + document.getElementById("txtcylindree").value;
+      return resultat;
+    }
+
+    function Get_zones_modif() {
+      let resultat;
+
+      resultat = "marque=" + document.getElementById("txtMarque_modif").value;
+      resultat += "&couleur=" + document.getElementById("txtCouleur_modif").value;
+      resultat += "&cylindree=" + document.getElementById("txtCylindree_modif").value;
+      return resultat;
+    }
+
+    function enregistrer_ajout() {
+      let params = Get_zones_ajout();
+      Obj_AJAX_voitures.Cle = "";
+      Obj_AJAX_voitures.post(params, retourAjaxAjout, erreur);
+    }
+
+    function enregistrer_modif(code) {
+      let params = Get_zones_modif();
+
+      Obj_AJAX_voitures.Cle = code;
+      Obj_AJAX_voitures.put(params, RetourAjaxModif, erreur);
+    }
+
+    ////////////////////////////////
+    //    La fonction pour activer la recherche sur la TABLE
+    ////////////////////////////////
+    function search(saisie, table) {
+
+      let zoneRecherche = document.getElementById(saisie);
+      zoneRecherche.addEventListener("keyup", () => {
+
+        let rows = document.getElementById(table).getElementsByTagName("tr");
+        // console.log(rows);
+        for (let item of rows) {
+          if (!item.innerText.includes(zoneRecherche.value)) {
+            item.classList.add("visually-hidden") // Classe BS
+          } else {
+            item.classList.remove("visually-hidden") // Classe BS
+          }
+        };
+      },
+        false);
+    }
+
+    //////////////////////////////////////////////////////////
+    ///////			Les fonctions AJAX
+    //////////////////////////////////////////////////////////
+    function RetourGetAjax(reponse) {
+      // Version améliorée qui gére l'affichage du resultat
+      let myObj = JSON.parse(reponse);
+
+      // // Efface la zone et ajoute la zone de recherche
+      document.getElementById("zoneTable").innerHTML = "";
+      document.getElementById("zoneTable").innerHTML =
+        "<div class='form-inline'> <label for='txtRech'>Recherche&nbsp;&nbsp; </label> <input type='text' class='form-control' id='txtRech' name='txtRech' placeholder='saisir le début de votre recherche'>&nbsp; <i class='fas fa-search' id='btnsearch'></i> </div>";
+
+      let tab = new Table();
+      tab.id_zone = "zoneTable";
+      tab.class_table = "table table-dark table-hover";
+
+      tab.data = myObj.voitures.records; // Les données à afficher
+      tab.header = ["Code", "Marque", "Couleur", "Cylindrée"];
+
+      tab.class_modif = "mod_voiture btn btn-info btn-sm ";
+      tab.class_suppr = "suppr_voiture btn btn-danger btn-sm ";
+      tab.class_vue = "vue_voiture btn btn-success btn-sm ";
+
+
+      ///////////     BS 5  /////////////////////
+      tab.icone_vue = "bi bi-eye";
+      tab.icone_modif = "bi bi-pencil";
+      tab.icone_suppr = "bi bi-trash3";
+
+      // Les méthodes
+      tab.fonction_modif = modifVoiture;
+      tab.fonction_suppr = supprVoiture;
+      tab.fonction_vue = vueVoiture;
+
+      tab.separateur = "*";
+
+
+
+      // Les nouvelles Propriétés de la classe TABLE
+      tab.BS_class_modif = "btn btn-info btn-sm";
+      tab.BS_class_suppr = "btn btn-danger btn-sm";
+      tab.BS_class_vue = "btn btn-success btn-sm";
+
+      // Pour les fenetres MODAL BS
+      tab.BS_toggle_modal = {
+        // attribut : "data-toggle" ,
+        attribut: "data-bs-toggle",
+        valeur: "modal"
+      };
+      tab.BS_target_vue = {
+        attribut: "data-bs-target",
+        valeur: "#frmVue"
+      };
+
+
+      tab.BS_target_modif = {
+        attribut: "data-bs-target",
+        valeur: "#frmModif"
+      };
+
+      tab.id_tbody = "tliste";
+      tab.append = true;
+
+      tab.generer();
+
+      // // Association de la zone de recherche avec la table
+      // // Le filtre devient actif
+      search("txtRech", "tliste");
+    }
+
+    function retourAjaxAjout(reponse) {
+      // Liste des voitures
+      afficher_Liste();
+      generer_alert(
+        "success",
+        "Element bien ajouté avec le code : " + reponse
+      );
+    }
+
+    function RetourAjaxModif(xhttp) {
+      //            document.getElementById("message").innerHTML = "Element supprimé";
+      afficher_Liste();
+      generer_alert("success", "Element bien modifié");
+
+      // Ferme la fenetre MODAL
+      var myModal = bootstrap.Modal.getOrCreateInstance(document.getElementById('frmModif'));
+      myModal.hide();
+      console.log(myModal);
+    }
+
+
+    function retourAjaxSuppr(reponse) {
+      // Liste des voitures
+      afficher_Liste();
+      generer_alert("danger", "Element bien supprimé");
+    }
+
+    function erreur(reponse) {
+      alert("Erreur Ajax " + reponse);
+    }
+
+    function afficher_Liste() {
+      // Liste des voitures
+      Obj_AJAX_voitures.Cle = "";
+
+      Obj_AJAX_voitures.get(RetourGetAjax, erreur);
+    }
+
+    //////////////////////////////////////////////////////////
+    ///////			PROGRAMME PRINCIPAL
+    //////////////////////////////////////////////////////////
+    window.addEventListener('load', (event) => {
+      let header = new loadHTML("id-header", "../HEADER_FOOTER/HEADER.html");
+      header.load();
+      let footer = new loadHTML("id-footer", "../HEADER_FOOTER/FOOTER.html");
+      footer.load();
+
+      afficher_Liste();
+      generer_alert("info", "Voici la liste des voitures");
+
+      // Listener sur le bouton ENREGISTRER Ajout
+      let btn_ajout = document.getElementById("btnAjout");
+      btn_ajout.addEventListener("click", enregistrer_ajout, false);
+
+
+      // Listener sur le bouton ENREGISTRER Modif
+      let btnModif_enreg = document.getElementById("btnModif_enreg");
+      btnModif_enreg.addEventListener("click", () => {
+        let code = document.getElementById("txtcode_modif").value;
+        enregistrer_modif(code);
+        // $("#frmModif").modal("toggle"); // La fenetre MODALE se ferme après le Click
+      }, false);
+    });
+  </script>
+</body>
+
+</html>

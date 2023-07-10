@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/7a86044dd0.js" crossorigin="anonymous"></script>
+
+    <title>Exercice AJAX avec Class(API Users)</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html"><i class="fab fa-js-square fa-2x"></i></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-center" id="collapsibleNavbar">
+                <ul class="navbar-nav d-flex align-items-center">
+                    <li class="nav-item">
+                        <a class="nav-link" href="Exo_complet_voitures.html">Gestion des Voitures</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Exo_complet_users.html">Gestion des Users</a>
+                    </li>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+
+        <div class="row justify-content-center mt-5">
+            <div class="col-lg-8 text-center border rounded pt-4 shadow-lg bg-secondary">
+                <h1>Exercice AJAX (API USERS)</h1>
+                <p><strong>Objectif :</strong> Réaliser 3 pages WEB ( index.html, Exo_complet_users.html et
+                    Exo_complet_voitures.html)</p>
+
+                <img src="..\images\email.jpg" alt="vehicules" class="img-fluid rounded mx-auto d-block m-5" width="300"
+                    height=300">
+
+                <div id="zone_alert"></div>
+
+                <div class="form-floating">
+                    <input type="text" class="form-control mb-3" id="zoneRech" placeholder="Saisir la recherche :">
+                    <label for="zoneRech">Saisir la recherche :</label>
+                </div>
+
+                <div id="affichage"></div>
+
+
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL MODIFIER -->
+    <div class="modal" id="modalModif">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Modification</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <form>
+                        <div class="form-floating mb-3">
+                            <input type="number" class="form-control" id="code_modif" placeholder="Saisir Code :"
+                                name="code_modif" disabled>
+                            <label for="code_modif">Code :</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="nom_modif" placeholder="Saisir le nom :"
+                                name="nom_modif">
+                            <label for="nom_modif">Saisir le nom :</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="prenom_modif" placeholder="Saisir le prenom :"
+                                name="prenom_modif">
+                            <label for="prenom_modif">Saisir le prenom :</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="email" class="form-control" id="mail_modif" placeholder="Saisir le mail:"
+                                name="mail_modif" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+                            <label for="mail_modif">Saisir le mail :</label>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" data-bs-dismiss="modal"
+                        id="btn-modif">Enregistrer</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fermer</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <!-- MODAL Visualiser -->
+    <div class="modal" id="modalVue">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Consultation</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <form>
+                        <div class="form-floating mb-3">
+                            <input type="number" class="form-control" id="code_vue" placeholder="Code :" name="code_vue"
+                                disabled>
+                            <label for="code_vue">Code :</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="nom_vue" placeholder="Nom" name="nom_vue"
+                                disabled>
+                            <label for="nom_vue">Nom :</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="prenom_vue" placeholder="Prenom :"
+                                name="prenom_vue" disabled>
+                            <label for="prenom_vue">Prenom :</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="email" class="form-control" id="mail_vue" placeholder="Mail :" name="mail_vue"
+                                disabled>
+                            <label for="mail_vue">Mail :</label>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" data-bs-dismiss="modal">Enregistrer</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fermer</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL Ajouter -->
+    <div class="modal" id="modalAjout">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Ajouter</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <form>
+                        <!-- <div class="form-floating mb-3">
+                            <input type="number" class="form-control" id="code_ajout" placeholder="Saisir Code :"
+                                name="code_ajout">
+                            <label for="code_ajout">Code :</label>
+                        </div> -->
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="nom_ajout" placeholder="Saisir le nom  :"
+                                name="nom_ajout">
+                            <label for="nom_ajout">Saisir le nom :</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="prenom_ajout" placeholder="Saisir le prenom :"
+                                name="prenom_ajout">
+                            <label for="prenom_ajout">Saisir le prenom :</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="email" class="form-control" id="mail_ajout" placeholder="Saisir le mail :"
+                                name="mail_ajout">
+                            <label for="mail_ajout">Saisir le mail :</label>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" data-bs-dismiss="modal"
+                        id="btn-ajouter">Enregistrer</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fermer</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- BOOTSTRAP JAVASCRIPT -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+        crossorigin="anonymous"></script>
+
+    <script type="module" src="js/main_ES6_Users.js"></script>
+</body>
+
+</html>

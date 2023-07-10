@@ -1,0 +1,9 @@
+
+// Surtout la partie Using a Configuration
+https://webpack.js.org/guides/getting-started/  
+
+// Pour générer les .js d'un site avec plusieurs pages
+https://webpack.js.org/concepts/entry-points/
+
+// Bootstrap + webpack
+https://getbootstrap.com/docs/5.2/getting-started/webpack/

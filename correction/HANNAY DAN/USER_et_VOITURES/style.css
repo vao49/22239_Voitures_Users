@@ -1,0 +1,143 @@
+* {
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: 'icomoon';
+  src: url("fonts/icomoon/icomoon.eot?srf3rx");
+  src: url("fonts/icomoon/icomoon.eot?srf3rx#iefix") format("embedded-opentype"), url("fonts/icomoon/icomoon.ttf?srf3rx") format("truetype"), url("fonts/icomoon/icomoon.woff?srf3rx") format("woff"), url("fonts/icomoon/icomoon.svg?srf3rx#icomoon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Calibri';
+  src: url('fonts/Calibri-BoldItalic.eot');
+  src: url('fonts/Calibri-BoldItalic.eot?#iefix') format('embedded-opentype'),
+    url('fonts/Calibri-BoldItalic.woff2') format('woff2'),
+    url('fonts/Calibri-BoldItalic.woff') format('woff'),
+    url('fonts/Calibri-BoldItalic.ttf') format('truetype'),
+    url('fonts/Calibri-BoldItalic.svg#Calibri-BoldItalic') format('svg');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Calibri';
+  src: url('fonts/Calibri-Bold.eot');
+  src: url('fonts/Calibri-Bold.eot?#iefix') format('embedded-opentype'),
+    url('fonts/Calibri-Bold.woff2') format('woff2'),
+    url('fonts/Calibri-Bold.woff') format('woff'),
+    url('fonts/Calibri-Bold.ttf') format('truetype'),
+    url('fonts/Calibri-Bold.svg#Calibri-Bold') format('svg');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Calibri';
+  src: url('fonts/Calibri-Italic.eot');
+  src: url('fonts/Calibri-Italic.eot?#iefix') format('embedded-opentype'),
+    url('fonts/Calibri-Italic.woff2') format('woff2'),
+    url('fonts/Calibri-Italic.woff') format('woff'),
+    url('fonts/Calibri-Italic.ttf') format('truetype'),
+    url('fonts/Calibri-Italic.svg#Calibri-Italic') format('svg');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Calibri';
+  src: url('fonts/Calibri.eot');
+  src: url('fonts/Calibri.eot?#iefix') format('embedded-opentype'),
+    url('fonts/Calibri.woff2') format('woff2'),
+    url('fonts/Calibri.woff') format('woff'),
+    url('fonts/Calibri.ttf') format('truetype'),
+    url('fonts/Calibri.svg#Calibri') format('svg');
+  font-weight: normal;
+  font-style: 400;
+  font-display: swap;
+}
+
+::-webkit-selection {
+  color: var(--highlight-font);
+  background: var(--highlight-back);
+}
+
+::-moz-selection {
+  color: var(--highlight-font);
+  background: var(--highlight-back);
+}
+
+::selection {
+  color: var(--highlight-font);
+  background: var(--highlight-back);
+}
+
+body,
+html {
+  font-size: 18px;
+  background-color: #ddb06d;
+  font-family: "Calibri", "Comfortaa", "Montserrat", "sans-serif";
+  line-height: 1.8;
+  margin: 0;
+  height: 100%;
+  min-height: 100vh;
+}
+
+.icon-twitter2{
+color: #ccc;
+}
+
+.icon-facebook2{
+color: #ccc;
+}
+
+.icon-instagram{
+color: #ccc;
+}
+
+.icon-cog2{
+  color: #caa376;
+  background-color: rgba(128, 255, 0, 0);
+  border-color: rgba(128, 255, 0, 0);
+}
+
+.icon-trash2{
+  color: #9c0000;
+  background-color: rgba(128, 255, 0, 0);
+  border-color: rgba(128, 255, 0, 0);
+}
+
+.icon-eye2{
+  color: #44834c;
+  background-color: rgba(128, 255, 0, 0);
+  border-color: rgba(128, 255, 0, 0);
+}
+
+.icon-cog2:hover{
+  color: #fad6ad;
+}
+
+.icon-trash2:hover{
+  color: #d44949;
+}
+
+.icon-eye2:hover{
+  color: #86d390;
+}
+
+.icon-chevron-with-circle-up{
+  color: #494949 !important;
+}
+
+.icon-chevron-with-circle-up:hover{
+  color: #7e7e7e !important;
+}
+
+.dropdown-item.active{
+  background-color: #424242;
+}
